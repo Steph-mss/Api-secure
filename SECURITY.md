@@ -19,7 +19,3 @@ Ici on explique comment l’API est protégée et ce qu’on a mis en place pour
 - **Logging** : On utilise `morgan` pour garder une trace des requêtes. Ça aide si on doit comprendre un comportement bizarre ou trouver une activité suspecte.
 
 - **Helmet** : Le middleware `helmet` met en place tout un tas d’en-têtes de sécu. Ça protège contre plusieurs attaques web connues sans qu’on ai besoin d’y penser tous les jours.
-
-## Signaler un problème
-
-Si jamais vous tombez sur une faille ou un truc suspect, ouvrez une issue sur GitHub. On s’en occupera dès que possible.
