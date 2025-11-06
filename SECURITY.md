@@ -1,4 +1,4 @@
-# Politique de Sécurité (version plus humaine)
+# Politique de Sécurité
 
 Ici on explique comment l’API est protégée et ce qu’on a mis en place pour éviter les soucis de sécu.
 
@@ -23,7 +23,3 @@ Ici on explique comment l’API est protégée et ce qu’on a mis en place pour
 ## Signaler un problème
 
 Si jamais vous tombez sur une faille ou un truc suspect, ouvrez une issue sur GitHub. On s’en occupera dès que possible.
-
----
-
-Si tu veux une version encore plus relachée, plus technique, ou plus courte, dis-moi ce que tu préfére.
