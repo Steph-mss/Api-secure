@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "5b0055c7-af52-462d-9c67-6dd6104a7e6b",
+		"name": "Mon API Sécurisée",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49830935",
+		"_collection_link": "https://steph-mss-9375473.postman.co/workspace/Steph's-Workspace~28579487-1ce2-496f-8611-1ca76382c123/collection/49830935-5b0055c7-af52-462d-9c67-6dd6104a7e6b?action=share&source=collection_link&creator=49830935"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\",\r\n  \"role\": \"admin\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UN ENDPOINT PROTÉGÉ",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Test sans token\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/books",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creation auteur",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGM3MGMxNGMwOGQwZGZmZjk5ZjNkMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MjQyMzM0MiwiZXhwIjoxNzYyNDMwNTQyfQ.WTizDH3nps-20CGN4c-LH0tb5Ufay8IIvbO6tOeDFRI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Masashi Kishimoto\",\r\n  \"nationality\": \"Japonais\",\r\n  \"birthYear\": 1974\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/authors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TESTER LE CRUD SUR BOOKS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGM3MGMxNGMwOGQwZGZmZjk5ZjNkMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MjQyMzM0MiwiZXhwIjoxNzYyNDMwNTQyfQ.WTizDH3nps-20CGN4c-LH0tb5Ufay8IIvbO6tOeDFRI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Naruto\",\r\n  \"author\": \"690c74324c08d0dfff99f3d9\",\r\n  \"year\": 1999,\r\n  \"tags\": [\"manga\", \"action\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/books",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/books?page=1&limit=10&search=naruto",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "search",
+							"value": "naruto"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGM3MGMxNGMwOGQwZGZmZjk5ZjNkMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MjQyMzM0MiwiZXhwIjoxNzYyNDMwNTQyfQ.WTizDH3nps-20CGN4c-LH0tb5Ufay8IIvbO6tOeDFRI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n  \"tags\": [\"horreur\", \"love\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/books/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"books",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "690c75174c08d0dfff99f3dd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGM3MGMxNGMwOGQwZGZmZjk5ZjNkMyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MjQyMzM0MiwiZXhwIjoxNzYyNDMwNTQyfQ.WTizDH3nps-20CGN4c-LH0tb5Ufay8IIvbO6tOeDFRI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/books/:id",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"books",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "690c75174c08d0dfff99f3dd"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TESTER LE RATE LIMITING",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"test\",\r\n  \"password\": \"azerty13\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		}
+	]
+}
